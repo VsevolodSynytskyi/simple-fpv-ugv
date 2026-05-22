@@ -1,8 +1,7 @@
 # Simple FPV UGV
 
-RC car controller with a live first-person camera feed. The car runs on a
-Raspberry Pi 5 (motors via GPIO, MJPEG camera stream, WebSocket command
-channel). The browser UI runs on a laptop and connects to the Pi over the
+Simple UGV controller with a live first-person camera feed. The UGV runs on a
+Raspberry Pi 5 The browser UI runs on a laptop and connects to the Pi over the
 local network.
 
 ## Stack
@@ -16,11 +15,10 @@ local network.
 
 **Frontend** (`frontend/`, runs on the laptop, served by FastAPI in prod)
 
-- React 19 + TypeScript (strict)
-- Vite 8 (Rolldown) + `@vitejs/plugin-react`
-- Tailwind CSS 4 + shadcn/ui (Radix, dark theme default)
+- React + TypeScript
+- Vite + `@vitejs/plugin-react`
+- Tailwind CSS + shadcn/ui (Radix)
 - `motion` for animations, `lucide-react` for icons
-- Prettier + `prettier-plugin-tailwindcss`
 
 ## Run it
 
