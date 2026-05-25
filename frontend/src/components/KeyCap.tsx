@@ -1,21 +1,22 @@
 import { cn } from '@/lib/utils'
+import type { ReactNode } from 'react'
 
 type Props = {
-  label: string
+  children: ReactNode
   active: boolean
 }
 
-export function KeyCap({ label, active }: Props) {
+export function KeyCap({ children, active }: Props) {
   return (
     <div
       className={cn(
-        'flex h-14 w-14 items-center justify-center rounded-md border text-lg font-medium transition-colors',
+        'flex h-14 w-14 items-center justify-center rounded-md border transition-colors',
         active
           ? 'border-primary bg-primary text-primary-foreground'
           : 'border-border bg-card text-muted-foreground',
       )}
     >
-      {label}
+      {children}
     </div>
   )
 }

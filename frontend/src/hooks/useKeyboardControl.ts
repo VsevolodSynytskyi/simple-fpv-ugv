@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 
 const KEY_MAP: Record<string, string> = {
-  w: 'forward',
-  s: 'backward',
-  a: 'left',
-  d: 'right',
+  arrowup: 'forward',
+  arrowdown: 'backward',
+  arrowleft: 'left',
+  arrowright: 'right',
 }
 
 export function useKeyboardControl(onCommand: (cmd: string) => void) {
@@ -15,7 +15,9 @@ export function useKeyboardControl(onCommand: (cmd: string) => void) {
 
     function handleDown(e: KeyboardEvent) {
       const key = e.key.toLowerCase()
-      if (!KEY_MAP[key] || key === active) return
+      if (!KEY_MAP[key]) return
+      e.preventDefault()
+      if (key === active) return
       active = key
       setActiveKey(key)
       onCommand(KEY_MAP[key])
@@ -24,6 +26,7 @@ export function useKeyboardControl(onCommand: (cmd: string) => void) {
     function handleUp(e: KeyboardEvent) {
       const key = e.key.toLowerCase()
       if (!KEY_MAP[key]) return
+      e.preventDefault()
       active = null
       setActiveKey(null)
       onCommand('stop')
