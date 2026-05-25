@@ -8,7 +8,9 @@ export default defineConfig(({ mode }) => {
   const piHost = env.PI_HOST
 
   if (!piHost) {
-    throw new Error('PI_HOST is not set. Copy .env.example to .env at the repo root.')
+    throw new Error(
+      'PI_HOST is not set. Copy .env.example to .env at the repo root.',
+    )
   }
 
   return {

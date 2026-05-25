@@ -1,5 +1,4 @@
-import { ConnectionStatus } from './components/ConnectionStatus'
-import { KeyGrid } from './components/KeyGrid'
+import { Hud } from './components/Hud'
 import { VideoFeed } from './components/VideoFeed'
 import { useKeyboardControl } from './hooks/useKeyboardControl'
 import { useWebSocket } from './hooks/useWebSocket'
@@ -9,10 +8,9 @@ export default function App() {
   const activeKey = useKeyboardControl(send)
 
   return (
-    <main className="flex min-h-screen flex-col items-center gap-4 p-5 font-mono">
+    <main className="fixed inset-0 overflow-hidden">
       <VideoFeed />
-      <ConnectionStatus connected={connected} />
-      <KeyGrid activeKey={activeKey} />
+      <Hud connected={connected} activeKey={activeKey} />
     </main>
   )
 }

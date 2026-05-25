@@ -8,8 +8,10 @@ export function ConnectionStatus({ connected }: Props) {
   return (
     <div
       className={cn(
-        'rounded px-4 py-1 text-sm text-white',
-        connected ? 'bg-green-900' : 'bg-red-900',
+        'rounded-md border px-3 py-1 text-xs font-medium',
+        connected
+          ? 'border-primary bg-primary text-primary-foreground'
+          : 'border-destructive bg-destructive text-white',
       )}
     >
       {connected ? 'Connected' : 'Disconnected'}
