@@ -13,6 +13,7 @@ React frontend on Mac.
 ## Dev workflow
 
 Terminal 1 — Pi (via SSH):
+
 ```bash
 cd ~/ugv/backend
 source ~/ugv/venv/bin/activate
@@ -20,6 +21,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
 Terminal 2 — Mac:
+
 ```bash
 cd frontend
 npm run dev
@@ -27,23 +29,24 @@ npm run dev
 ```
 
 Deploy:
+
 ```bash
 ./deploy.sh
 ```
 
 ## Conventions
 
-### Styling
+## Visual Style
 
-- Use **Tailwind utility classes** for all styling. No inline `style={}`
-  props except where required by third-party libs (e.g., Leaflet).
-- Do NOT write custom CSS in `index.css` or create new `.css` files.
-  The only CSS file is `src/index.css` which contains the Tailwind import.
-- Use **shadcn/ui** components for interactive UI elements (dialogs,
-  dropdowns, tooltips, popovers, etc.).
-  Add new components via `npx shadcn@latest add <component>`.
-- Dark theme is the default (CSS variables in `src/index.css`).
-- Prefer named Tailwind classes over arbitrary values.
+This project follows a strict visual language documented in `frontend/VISUAL_STYLE.md`.
+
+**Always read `frontend/VISUAL_STYLE.md` before:**
+
+- Creating any new component
+- Adding colors, spacing, or motion
+- Choosing radii, typography, or z-index values
+
+Do not introduce visual patterns not covered by that document without asking first.
 
 ### Animations
 
