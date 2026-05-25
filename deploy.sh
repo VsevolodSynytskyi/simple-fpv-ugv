@@ -1,8 +1,19 @@
 #!/bin/bash
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [ ! -f "$SCRIPT_DIR/.env" ]; then
+  echo "✗ .env not found. Copy .env.example to .env and set PI_HOST." >&2
+  exit 1
+fi
+
+set -a
+# shellcheck disable=SC1091
+source "$SCRIPT_DIR/.env"
+set +a
+
 PI_USER="seva"
-PI_HOST="192.168.0.133"
 PI_PATH="~/ugv"
 
 echo "→ Building frontend..."

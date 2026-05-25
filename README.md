@@ -22,6 +22,15 @@ local network.
 
 ## Run it
 
+### Configure the Pi hostname
+
+Copy `.env.example` to `.env` and set `PI_HOST` to your Pi's hostname or IP.
+Both the dev proxy (`frontend/vite.config.ts`) and `deploy.sh` read from it.
+
+```bash
+cp .env.example .env
+```
+
 ### Backend (on the Pi, over SSH)
 
 ```bash
@@ -39,7 +48,7 @@ npm run dev
 # open http://localhost:5173
 ```
 
-The dev server proxies `/video` and `/ws` to the Pi at `192.168.0.133:8000`
+The dev server proxies `/video` and `/ws` to the Pi at `$PI_HOST:8000`
 (see `frontend/vite.config.ts`).
 
 ### Deploy to the Pi
@@ -49,7 +58,7 @@ The dev server proxies `/video` and `/ws` to the Pi at `192.168.0.133:8000`
 ```
 
 Builds the frontend into `backend/static/`, rsyncs the backend to the Pi,
-and restarts `uvicorn`. App is then served from `http://192.168.0.133:8000`.
+and restarts `uvicorn`. App is then served from `http://$PI_HOST:8000`.
 
 ## Project layout
 
