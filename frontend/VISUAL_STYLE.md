@@ -43,76 +43,76 @@ language stays the same — only the underlying token values change.
 
 ### 1.3 Color system
 
-All colors are defined as **OKLCH** CSS variables. The variables are *roles*,
+All colors are defined as **OKLCH** CSS variables. The variables are _roles_,
 not literal hues, and components reference roles only (`bg-card`,
 `text-muted-foreground`, etc.).
 
-| Role | Purpose |
-|---|---|
-| `background` / `foreground` | Page surface & default text |
-| `card` / `card-foreground` | Card surface & text on it |
-| `popover` / `popover-foreground` | Overlay surface & text on it |
-| `primary` / `primary-foreground` | Primary action (used sparingly) |
-| `secondary` / `secondary-foreground` | Secondary action |
-| `muted` / `muted-foreground` | De-emphasized text / inactive backgrounds |
-| `accent` / `accent-foreground` | Hover & toggle-on background |
-| `destructive` | Errors, danger actions, failure state |
-| `border` | Hairline borders |
-| `input` | Form field background tint |
-| `ring` | Focus ring color |
-| `chart-1` … `chart-5` | Reserved palette for data viz |
-| `sidebar-*` | Sidebar-scoped variants (same roles, dedicated tokens) |
+| Role                                 | Purpose                                                |
+| ------------------------------------ | ------------------------------------------------------ |
+| `background` / `foreground`          | Page surface & default text                            |
+| `card` / `card-foreground`           | Card surface & text on it                              |
+| `popover` / `popover-foreground`     | Overlay surface & text on it                           |
+| `primary` / `primary-foreground`     | Primary action (used sparingly)                        |
+| `secondary` / `secondary-foreground` | Secondary action                                       |
+| `muted` / `muted-foreground`         | De-emphasized text / inactive backgrounds              |
+| `accent` / `accent-foreground`       | Hover & toggle-on background                           |
+| `destructive`                        | Errors, danger actions, failure state                  |
+| `border`                             | Hairline borders                                       |
+| `input`                              | Form field background tint                             |
+| `ring`                               | Focus ring color                                       |
+| `chart-1` … `chart-5`                | Reserved palette for data viz                          |
+| `sidebar-*`                          | Sidebar-scoped variants (same roles, dedicated tokens) |
 
 **Reference token values (dark):**
 
 ```css
---background:            oklch(0.145 0 0);   /* near-black */
---foreground:            oklch(0.985 0 0);   /* near-white */
---card:                  oklch(0.205 0 0);
---card-foreground:       oklch(0.985 0 0);
---popover:               oklch(0.205 0 0);
---popover-foreground:    oklch(0.985 0 0);
---primary:               oklch(0.922 0 0);   /* light grey on dark */
---primary-foreground:    oklch(0.205 0 0);
---secondary:             oklch(0.269 0 0);
---secondary-foreground:  oklch(0.985 0 0);
---muted:                 oklch(0.269 0 0);
---muted-foreground:      oklch(0.708 0 0);
---accent:                oklch(0.269 0 0);
---accent-foreground:     oklch(0.985 0 0);
---destructive:           oklch(0.704 0.191 22.216);
---border:                oklch(1 0 0 / 10%); /* 10% white */
---input:                 oklch(1 0 0 / 15%);
---ring:                  oklch(0.556 0 0);
+--background: oklch(0.145 0 0); /* near-black */
+--foreground: oklch(0.985 0 0); /* near-white */
+--card: oklch(0.205 0 0);
+--card-foreground: oklch(0.985 0 0);
+--popover: oklch(0.205 0 0);
+--popover-foreground: oklch(0.985 0 0);
+--primary: oklch(0.922 0 0); /* light grey on dark */
+--primary-foreground: oklch(0.205 0 0);
+--secondary: oklch(0.269 0 0);
+--secondary-foreground: oklch(0.985 0 0);
+--muted: oklch(0.269 0 0);
+--muted-foreground: oklch(0.708 0 0);
+--accent: oklch(0.269 0 0);
+--accent-foreground: oklch(0.985 0 0);
+--destructive: oklch(0.704 0.191 22.216);
+--border: oklch(1 0 0 / 10%); /* 10% white */
+--input: oklch(1 0 0 / 15%);
+--ring: oklch(0.556 0 0);
 ```
 
 **Reference token values (light):**
 
 ```css
---background:            oklch(1 0 0);
---foreground:            oklch(0.145 0 0);
---card:                  oklch(1 0 0);
---card-foreground:       oklch(0.145 0 0);
---popover:               oklch(1 0 0);
---popover-foreground:    oklch(0.145 0 0);
---primary:               oklch(0.205 0 0);
---primary-foreground:    oklch(0.985 0 0);
---secondary:             oklch(0.97 0 0);
---secondary-foreground:  oklch(0.205 0 0);
---muted:                 oklch(0.97 0 0);
---muted-foreground:      oklch(0.556 0 0);
---accent:                oklch(0.97 0 0);
---accent-foreground:     oklch(0.205 0 0);
---destructive:           oklch(0.577 0.245 27.325);
---border:                oklch(0.922 0 0);
---input:                 oklch(0.922 0 0);
---ring:                  oklch(0.708 0 0);
+--background: oklch(1 0 0);
+--foreground: oklch(0.145 0 0);
+--card: oklch(1 0 0);
+--card-foreground: oklch(0.145 0 0);
+--popover: oklch(1 0 0);
+--popover-foreground: oklch(0.145 0 0);
+--primary: oklch(0.205 0 0);
+--primary-foreground: oklch(0.985 0 0);
+--secondary: oklch(0.97 0 0);
+--secondary-foreground: oklch(0.205 0 0);
+--muted: oklch(0.97 0 0);
+--muted-foreground: oklch(0.556 0 0);
+--accent: oklch(0.97 0 0);
+--accent-foreground: oklch(0.205 0 0);
+--destructive: oklch(0.577 0.245 27.325);
+--border: oklch(0.922 0 0);
+--input: oklch(0.922 0 0);
+--ring: oklch(0.708 0 0);
 ```
 
 Charts and sidebar tokens follow the same role pattern; if a token is not
 listed for a theme, fall back to its shadcn `new-york` default.
 
-**Status / semantic colors** are *not* role tokens — they are Tailwind's
+**Status / semantic colors** are _not_ role tokens — they are Tailwind's
 literal `green-500`, `yellow-500`, `red-500`, `blue-400`. They appear in three
 fixed tints (see [Badges](#34-badges-status-pills)):
 
@@ -131,24 +131,24 @@ A single base radius drives a derived scale. Replicate by declaring:
 ```css
 --radius: 0.625rem; /* 10px — the canonical card radius */
 
---radius-sm:  calc(var(--radius) - 4px);   /* 6px */
---radius-md:  calc(var(--radius) - 2px);   /* 8px */
---radius-lg:  var(--radius);               /* 10px */
---radius-xl:  calc(var(--radius) + 4px);   /* 14px */
---radius-2xl: calc(var(--radius) + 8px);   /* 18px */
---radius-3xl: calc(var(--radius) + 12px);  /* 22px */
---radius-4xl: calc(var(--radius) + 16px);  /* 26px */
+--radius-sm: calc(var(--radius) - 4px); /* 6px */
+--radius-md: calc(var(--radius) - 2px); /* 8px */
+--radius-lg: var(--radius); /* 10px */
+--radius-xl: calc(var(--radius) + 4px); /* 14px */
+--radius-2xl: calc(var(--radius) + 8px); /* 18px */
+--radius-3xl: calc(var(--radius) + 12px); /* 22px */
+--radius-4xl: calc(var(--radius) + 16px); /* 26px */
 ```
 
 **Typical usage:**
 
-| Element | Radius |
-|---|---|
-| Buttons, inputs, toggles | `rounded-md` (8px) |
-| Glass cards, popovers, toasts | `rounded-xl` (14px) |
+| Element                                  | Radius              |
+| ---------------------------------------- | ------------------- |
+| Buttons, inputs, toggles                 | `rounded-md` (8px)  |
+| Glass cards, popovers, toasts            | `rounded-xl` (14px) |
 | Outer page chrome / cropped media panels | `rounded-lg` (10px) |
-| Badges, progress bars, status dots | `rounded-full` |
-| Tiny pill chrome (e.g., grip handle) | `rounded-xs` |
+| Badges, progress bars, status dots       | `rounded-full`      |
+| Tiny pill chrome (e.g., grip handle)     | `rounded-xs`        |
 
 ---
 
@@ -162,24 +162,33 @@ and the strategic use of monospace.
 Inherit a generic system stack rather than shipping a webfont:
 
 ```css
-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-             'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+font-family:
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  'Helvetica Neue',
+  Arial,
+  sans-serif;
 
 /* monospace stack — used for all numeric values */
-font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
-             'Liberation Mono', monospace;
+font-family:
+  ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono',
+  monospace;
 ```
 
 The monospace stack is reached via Tailwind's `font-mono` utility.
 
 ### 2.2 Scale (Tailwind defaults)
 
-| Token | Used for |
-|---|---|
-| `text-xs` (12px) | Labels, toast body, tooltip body, badge text, scale captions |
-| `text-sm` (14px) | Buttons, body copy in popovers, toasts |
-| `text-base` (16px) | Numeric / data values |
-| `text-2xl` (24px) | Hero numbers (large readouts inside data widgets) |
+| Token              | Used for                                                     |
+| ------------------ | ------------------------------------------------------------ |
+| `text-xs` (12px)   | Labels, toast body, tooltip body, badge text, scale captions |
+| `text-sm` (14px)   | Buttons, body copy in popovers, toasts                       |
+| `text-base` (16px) | Numeric / data values                                        |
+| `text-2xl` (24px)  | Hero numbers (large readouts inside data widgets)            |
 
 ### 2.3 Recurring type patterns
 
@@ -198,7 +207,7 @@ The monospace stack is reached via Tailwind's `font-mono` utility.
 ```
 
 This label/value pair is the single most-repeated typographic motif. Numbers
-*always* render in `font-mono` so they don't shimmer between fixed-width
+_always_ render in `font-mono` so they don't shimmer between fixed-width
 digits as values stream in.
 
 **Empty state:** when a value is missing, render a muted `--`:
@@ -227,16 +236,7 @@ The signature surface. Every floating panel, every overlay button cluster,
 every toast uses it.
 
 ```tsx
-<div className="
-  bg-background/40
-  rounded-xl
-  border border-white/20
-  p-4
-  shadow-sm
-  backdrop-blur-sm
-  [.light_&]:border-white/50
-  [.light_&]:shadow-none
-">
+<div className="bg-background/40 rounded-xl border border-white/20 p-4 shadow-sm backdrop-blur-sm [.light_&]:border-white/50 [.light_&]:shadow-none">
   …
 </div>
 ```
@@ -276,24 +276,24 @@ aria-invalid:border-destructive aria-invalid:ring-destructive/20
 
 **Variants:**
 
-| Variant | Look |
-|---|---|
-| `default` | Bordered, `bg-background`, hover `bg-muted`. In dark mode swaps to `bg-input/30` → `bg-input/50` so it reads as a faintly translucent chip. `aria-expanded` toggles to the hover state. |
-| `destructive` | Solid `bg-destructive` with white text; `/60` in dark mode. |
-| `secondary` | `bg-secondary` with `secondary-foreground`; hover at `/80`. |
-| `ghost` | Transparent until hover, then `bg-accent`. |
-| `link` | Underlined `text-primary` only. |
+| Variant       | Look                                                                                                                                                                                    |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `default`     | Bordered, `bg-background`, hover `bg-muted`. In dark mode swaps to `bg-input/30` → `bg-input/50` so it reads as a faintly translucent chip. `aria-expanded` toggles to the hover state. |
+| `destructive` | Solid `bg-destructive` with white text; `/60` in dark mode.                                                                                                                             |
+| `secondary`   | `bg-secondary` with `secondary-foreground`; hover at `/80`.                                                                                                                             |
+| `ghost`       | Transparent until hover, then `bg-accent`.                                                                                                                                              |
+| `link`        | Underlined `text-primary` only.                                                                                                                                                         |
 
 **Sizes:**
 
-| Size | Height | Padding | Notes |
-|---|---|---|---|
-| `default` | `h-9` | `px-4 py-2` (or `px-3` when icon-only via `has-[>svg]`) | |
-| `xs` | `h-6` | `px-2 text-xs`, `gap-1`, svg `size-3` | Used for very dense chrome |
-| `sm` | `h-8` | `px-3` (`px-2.5` w/ svg) | |
-| `lg` | `h-10` | `px-6` (`px-4` w/ svg) | |
-| `icon` | `size-9` | square | |
-| `icon-xs` / `icon-sm` / `icon-lg` | `size-6` / `8` / `10` | square | |
+| Size                              | Height                | Padding                                                 | Notes                      |
+| --------------------------------- | --------------------- | ------------------------------------------------------- | -------------------------- |
+| `default`                         | `h-9`                 | `px-4 py-2` (or `px-3` when icon-only via `has-[>svg]`) |                            |
+| `xs`                              | `h-6`                 | `px-2 text-xs`, `gap-1`, svg `size-3`                   | Used for very dense chrome |
+| `sm`                              | `h-8`                 | `px-3` (`px-2.5` w/ svg)                                |                            |
+| `lg`                              | `h-10`                | `px-6` (`px-4` w/ svg)                                  |                            |
+| `icon`                            | `size-9`              | square                                                  |                            |
+| `icon-xs` / `icon-sm` / `icon-lg` | `size-6` / `8` / `10` | square                                                  |                            |
 
 The cursor is always `pointer` (set globally in the base recipe) — never rely
 on the browser default; touch/desktop hybrid use is assumed.
@@ -303,22 +303,7 @@ on the browser default; touch/desktop hybrid use is assumed.
 Text inputs match button sizing so they line up in toolbars and forms.
 
 ```tsx
-<input
-  className="
-    flex h-9 w-full min-w-0 rounded-md
-    border border-input bg-transparent
-    px-3 py-1
-    text-sm
-    placeholder:text-muted-foreground
-    selection:bg-primary selection:text-primary-foreground
-    shadow-xs outline-none transition-[color,box-shadow]
-    focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50
-    aria-invalid:border-destructive aria-invalid:ring-destructive/20
-    disabled:cursor-not-allowed disabled:opacity-50
-    dark:bg-input/30
-    file:text-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium
-  "
-/>
+<input className="border-input placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:bg-input/30 file:text-foreground flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-sm shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50" />
 ```
 
 Notes:
@@ -329,8 +314,8 @@ Notes:
   dark mode — same translucent-chip feel as the default button.
 - Border is the `--input` token, not `--border`.
 - The focus ring (`ring-[3px] ring-ring/50` plus a `border-ring` swap) is
-  shared with buttons and toggles — *this is the system's single focus
-  treatment.* Don't invent new focus styles.
+  shared with buttons and toggles — _this is the system's single focus
+  treatment._ Don't invent new focus styles.
 - Placeholder color always uses `text-muted-foreground`.
 
 ### 3.4 Toggles & toggle groups
@@ -355,17 +340,17 @@ overflow-hidden rounded-full border border-transparent
 px-2 py-0.5 text-xs font-medium whitespace-nowrap
 ```
 
-**Variants** — note the unusual semantic mapping: `default` is *green*, not
+**Variants** — note the unusual semantic mapping: `default` is _green_, not
 neutral. The variants are tuned around health/state, not generic UI
 emphasis.
 
-| Variant | Colors |
-|---|---|
-| `default` | `bg-green-500/15 text-green-500 border-green-500/25` — healthy / ready / active |
-| `secondary` | `bg-yellow-500/15 text-yellow-500 border-yellow-500/25` — transitional / initializing |
-| `destructive` | `bg-red-500/15 text-red-500 border-red-500/25` — disconnected / critical |
-| `outline` | Neutral `border-border`, `text-foreground` |
-| `ghost` / `link` | Hover-only states |
+| Variant          | Colors                                                                                |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| `default`        | `bg-green-500/15 text-green-500 border-green-500/25` — healthy / ready / active       |
+| `secondary`      | `bg-yellow-500/15 text-yellow-500 border-yellow-500/25` — transitional / initializing |
+| `destructive`    | `bg-red-500/15 text-red-500 border-red-500/25` — disconnected / critical              |
+| `outline`        | Neutral `border-border`, `text-foreground`                                            |
+| `ghost` / `link` | Hover-only states                                                                     |
 
 **Pulsing dot pattern** — when a status is transitional, prepend a small
 animated dot whose color inherits `bg-current` (so it picks up the variant's
@@ -414,8 +399,8 @@ machine-readable status strings).
 
 - Container: `fixed right-4 bottom-4 z-[2000] w-96 flex flex-col gap-2`.
 - Each toast: same glass recipe (`bg-background/40 border-white/20
-  backdrop-blur-sm rounded-xl shadow-sm`), plus `px-4 py-3 font-mono text-sm`.
-- Variant colors apply to the *text only*, not the background:
+backdrop-blur-sm rounded-xl shadow-sm`), plus `px-4 py-3 font-mono text-sm`.
+- Variant colors apply to the _text only_, not the background:
   - `info`: `text-blue-400` + Info icon
   - `warning`: `text-yellow-400` + TriangleAlert icon
   - `error`: `text-red-400` + CircleAlert icon
@@ -450,11 +435,7 @@ Two-pane layouts use a 1px `bg-border` separator with a small centered grip.
 The handle:
 
 ```tsx
-<div className="
-  bg-border relative flex w-px items-center justify-center
-  after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2
-  focus-visible:ring-ring focus-visible:ring-1 focus-visible:ring-offset-1
-">
+<div className="bg-border focus-visible:ring-ring relative flex w-px items-center justify-center after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2 focus-visible:ring-1 focus-visible:ring-offset-1">
   <div className="bg-border z-10 flex h-4 w-3 items-center justify-center rounded-xs border">
     <GripVerticalIcon className="size-2.5" />
   </div>
@@ -525,23 +506,23 @@ and never give it a visible track.
   - `z-2000` (or `z-[2000]`) — toasts, the topmost layer.
 
 Don't introduce intermediate z-index values for ordinary UI. Reserve very
-small (`z-1`–`z-9`) values for compositing layers *inside* a single visual
+small (`z-1`–`z-9`) values for compositing layers _inside_ a single visual
 component if they're truly local to it.
 
 ### 4.2 Spacing scale
 
 Tailwind's default 4px spacing scale is used as-is. The recurring choices:
 
-| Context | Spacing |
-|---|---|
-| Stacked card group (vertical) | `gap-1` (4px) |
-| Inside a card (column) | `gap-2` to `gap-4` |
-| Grid of stats inside a card | `gap-4` |
-| Padding inside a glass card | `p-4` (default), `p-1` (icon clusters) |
+| Context                          | Spacing                                      |
+| -------------------------------- | -------------------------------------------- |
+| Stacked card group (vertical)    | `gap-1` (4px)                                |
+| Inside a card (column)           | `gap-2` to `gap-4`                           |
+| Grid of stats inside a card      | `gap-4`                                      |
+| Padding inside a glass card      | `p-4` (default), `p-1` (icon clusters)       |
 | Floating overlay inset from edge | `top-4 left-4`, `bottom-3 left-3`, `right-3` |
-| Toast container inset | `right-4 bottom-4` |
-| Tooltip offset | `sideOffset={8}` |
-| Popover offset | `sideOffset={4}` |
+| Toast container inset            | `right-4 bottom-4`                           |
+| Tooltip offset                   | `sideOffset={8}`                             |
+| Popover offset                   | `sideOffset={4}`                             |
 
 When a panel needs a centered vertical anchor it pins to `top-1/2` then
 applies `-translate-y-1/2` rather than using flex centering on a full-height
@@ -550,7 +531,7 @@ parent — this keeps the panel's height intrinsic to its content.
 ### 4.3 Card stacking
 
 When several glass cards stack into a single "panel" (e.g., a side rail of
-data widgets), they sit with `gap-1` between them — *not* merged into a
+data widgets), they sit with `gap-1` between them — _not_ merged into a
 larger card. Each remains an independent glass slab so the user reads them
 as discrete instrument modules.
 
@@ -649,7 +630,7 @@ Rules:
 - Discrete status (badge, indicator) → render a hidden placeholder of the
   same shape (e.g., `<Badge className="invisible">Loading</Badge>`) so
   layout doesn't jump, then reveal with a 0.15s opacity crossfade.
-- Whole-card loading is *not* a supported state in this system. If a card
+- Whole-card loading is _not_ a supported state in this system. If a card
   has no data yet, it stays mounted with empty slots; if it shouldn't exist
   at all, don't render it.
 
