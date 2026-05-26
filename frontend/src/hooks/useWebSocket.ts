@@ -1,33 +1,40 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
-export function useWebSocket(url: string) {
-  const [connected, setConnected] = useState(false)
-  const wsRef = useRef<WebSocket | null>(null)
+const URL = `ws://${location.host}/ws`
+
+let ws: WebSocket | null = null
+let isConnected = false
+let reconnectTimer: ReturnType<typeof setTimeout> | null = null
+const listeners = new Set<(connected: boolean) => void>()
+
+function setConnected(value: boolean) {
+  isConnected = value
+  listeners.forEach((l) => l(value))
+}
+
+function connect() {
+  ws = new WebSocket(URL)
+  ws.onopen = () => setConnected(true)
+  ws.onclose = () => {
+    setConnected(false)
+    if (reconnectTimer) clearTimeout(reconnectTimer)
+    reconnectTimer = setTimeout(connect, 2000)
+  }
+}
+
+export function useWebSocket() {
+  const [connected, setLocal] = useState(isConnected)
 
   useEffect(() => {
-    let cancelled = false
-    let timeout: ReturnType<typeof setTimeout> | null = null
-
-    function connect() {
-      const ws = new WebSocket(url)
-      wsRef.current = ws
-      ws.onopen = () => setConnected(true)
-      ws.onclose = () => {
-        setConnected(false)
-        if (!cancelled) timeout = setTimeout(connect, 2000)
-      }
-    }
-    connect()
-
+    if (!ws) connect()
+    listeners.add(setLocal)
+    setLocal(isConnected)
     return () => {
-      cancelled = true
-      if (timeout) clearTimeout(timeout)
-      wsRef.current?.close()
+      listeners.delete(setLocal)
     }
-  }, [url])
+  }, [])
 
   const send = useCallback((cmd: string) => {
-    const ws = wsRef.current
     if (ws?.readyState === WebSocket.OPEN) ws.send(cmd)
   }, [])
 

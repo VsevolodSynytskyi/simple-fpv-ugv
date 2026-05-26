@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { motion } from 'motion/react'
 import type { ReactNode } from 'react'
 
 type Props = {
@@ -8,15 +8,16 @@ type Props = {
 
 export function KeyCap({ children, active }: Props) {
   return (
-    <div
-      className={cn(
-        'flex h-14 w-14 items-center justify-center rounded-md border transition-colors',
-        active
-          ? 'border-primary bg-primary text-primary-foreground'
-          : 'border-border bg-card text-muted-foreground',
-      )}
+    <motion.div
+      className="flex size-12 items-center justify-center rounded-md border border-white/20 shadow-sm backdrop-blur-sm"
+      initial={false}
+      animate={{
+        backgroundColor: active ? 'oklch(0.922 0 0)' : 'oklch(1 0 0 / 0.06)',
+        color: active ? 'oklch(0.205 0 0)' : 'oklch(0.985 0 0)',
+      }}
+      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
     >
       {children}
-    </div>
+    </motion.div>
   )
 }

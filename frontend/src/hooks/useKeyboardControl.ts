@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useWebSocket } from './useWebSocket'
 
 const KEY_MAP: Record<string, string> = {
   arrowup: 'forward',
@@ -7,7 +8,8 @@ const KEY_MAP: Record<string, string> = {
   arrowright: 'right',
 }
 
-export function useKeyboardControl(onCommand: (cmd: string) => void) {
+export function useKeyboardControl() {
+  const { send } = useWebSocket()
   const [activeKey, setActiveKey] = useState<string | null>(null)
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export function useKeyboardControl(onCommand: (cmd: string) => void) {
       if (key === active) return
       active = key
       setActiveKey(key)
-      onCommand(KEY_MAP[key])
+      send(KEY_MAP[key])
     }
 
     function handleUp(e: KeyboardEvent) {
@@ -29,7 +31,7 @@ export function useKeyboardControl(onCommand: (cmd: string) => void) {
       e.preventDefault()
       active = null
       setActiveKey(null)
-      onCommand('stop')
+      send('stop')
     }
 
     document.addEventListener('keydown', handleDown)
@@ -38,7 +40,7 @@ export function useKeyboardControl(onCommand: (cmd: string) => void) {
       document.removeEventListener('keydown', handleDown)
       document.removeEventListener('keyup', handleUp)
     }
-  }, [onCommand])
+  }, [send])
 
   return activeKey
 }

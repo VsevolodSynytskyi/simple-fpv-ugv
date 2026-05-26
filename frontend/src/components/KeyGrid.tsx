@@ -1,26 +1,24 @@
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp } from 'lucide-react'
+import { useKeyboardControl } from '@/hooks/useKeyboardControl'
 import { KeyCap } from './KeyCap'
 
-type Props = {
-  activeKey: string | null
-}
-
-export function KeyGrid({ activeKey }: Props) {
+export function KeyGrid() {
+  const activeKey = useKeyboardControl()
   return (
-    <div className="grid grid-cols-3 gap-1.5">
+    <div className="grid grid-cols-3 gap-1">
       <div />
       <KeyCap active={activeKey === 'arrowup'}>
-        <ArrowUp className="h-5 w-5" />
+        <ArrowUp size={18} />
       </KeyCap>
       <div />
       <KeyCap active={activeKey === 'arrowleft'}>
-        <ArrowLeft className="h-5 w-5" />
+        <ArrowLeft size={18} />
       </KeyCap>
       <KeyCap active={activeKey === 'arrowdown'}>
-        <ArrowDown className="h-5 w-5" />
+        <ArrowDown size={18} />
       </KeyCap>
       <KeyCap active={activeKey === 'arrowright'}>
-        <ArrowRight className="h-5 w-5" />
+        <ArrowRight size={18} />
       </KeyCap>
     </div>
   )
