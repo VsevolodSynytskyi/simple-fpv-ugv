@@ -10,10 +10,11 @@ from picamera2.outputs import FileOutput
 from gpiozero import Motor
 
 # --- Motors ---
-motor_left = Motor(forward=17, backward=27, enable=12, pwm=True)
-motor_right = Motor(forward=22, backward=23, enable=13, pwm=True)
+motor_left = Motor(forward=23, backward=22, enable=13, pwm=True)
+motor_right = Motor(forward=27, backward=17, enable=12, pwm=True)
 
 SPEED = 0.8
+TURN_SPEED = SPEED * 0.5
 
 
 def cmd_forward():
@@ -36,6 +37,26 @@ def cmd_right():
     motor_right.backward(SPEED)
 
 
+def cmd_forward_left():
+    motor_left.forward(TURN_SPEED)
+    motor_right.forward(SPEED)
+
+
+def cmd_forward_right():
+    motor_left.forward(SPEED)
+    motor_right.forward(TURN_SPEED)
+
+
+def cmd_backward_left():
+    motor_left.backward(TURN_SPEED)
+    motor_right.backward(SPEED)
+
+
+def cmd_backward_right():
+    motor_left.backward(SPEED)
+    motor_right.backward(TURN_SPEED)
+
+
 def cmd_stop():
     motor_left.stop()
     motor_right.stop()
@@ -46,6 +67,10 @@ COMMANDS = {
     "backward": cmd_backward,
     "left": cmd_left,
     "right": cmd_right,
+    "forward-left": cmd_forward_left,
+    "forward-right": cmd_forward_right,
+    "backward-left": cmd_backward_left,
+    "backward-right": cmd_backward_right,
     "stop": cmd_stop,
 }
 

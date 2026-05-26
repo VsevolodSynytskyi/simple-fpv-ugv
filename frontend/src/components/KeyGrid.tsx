@@ -3,21 +3,21 @@ import { useKeyboardControl } from '@/hooks/useKeyboardControl'
 import { KeyCap } from './KeyCap'
 
 export function KeyGrid() {
-  const activeKey = useKeyboardControl()
+  const activeKeys = useKeyboardControl()
   return (
     <div className="grid grid-cols-3 gap-1">
       <div />
-      <KeyCap active={activeKey === 'arrowup'}>
+      <KeyCap active={activeKeys.has('arrowup')}>
         <ArrowUp size={18} />
       </KeyCap>
       <div />
-      <KeyCap active={activeKey === 'arrowleft'}>
+      <KeyCap active={activeKeys.has('arrowleft')}>
         <ArrowLeft size={18} />
       </KeyCap>
-      <KeyCap active={activeKey === 'arrowdown'}>
+      <KeyCap active={activeKeys.has('arrowdown')}>
         <ArrowDown size={18} />
       </KeyCap>
-      <KeyCap active={activeKey === 'arrowright'}>
+      <KeyCap active={activeKeys.has('arrowright')}>
         <ArrowRight size={18} />
       </KeyCap>
     </div>
