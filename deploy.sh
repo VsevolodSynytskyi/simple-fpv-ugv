@@ -13,8 +13,8 @@ set -a
 source "$SCRIPT_DIR/.env"
 set +a
 
-PI_USER="seva"
-PI_PATH="~/ugv"
+: "${PI_USER:?PI_USER not set in .env}"
+: "${PI_PATH:?PI_PATH not set in .env}"
 
 echo "→ Building frontend..."
 cd frontend && npm run build && cd ..
