@@ -21,12 +21,12 @@ cd frontend && npm run build && cd ..
 
 echo "→ Deploying to Pi..."
 rsync -av --exclude='__pycache__' --exclude='*.pyc' \
-  backend/ $PI_USER@$PI_HOST:$PI_PATH/backend/
+  backend/ $PI_USER@$PI_HOST:$PI_PATH/
 
 echo "→ Restarting server..."
 ssh $PI_USER@$PI_HOST \
   "pkill uvicorn || true; \
-   cd $PI_PATH/backend && \
+   cd $PI_PATH && \
    source $PI_PATH/venv/bin/activate && \
    nohup uvicorn main:app --host 0.0.0.0 --port 8000 &"
 
