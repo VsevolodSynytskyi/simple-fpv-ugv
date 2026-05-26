@@ -9,17 +9,14 @@ export function ConnectionStatus() {
           animate={{ opacity: [1, 0.3, 1] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
         />
-        Connecting
+        Reconnecting
       </div>
       <h2 className="text-foreground mt-3 text-sm font-medium">
-        Waiting for the rover
+        Reconnecting to the rover
       </h2>
       <p className="text-muted-foreground mt-1 text-sm">
-        The browser is trying to open a control channel to the vehicle, but
-        nothing has answered yet. The rover is probably still booting, powered
-        off, or not reachable on this network. The app will keep retrying every
-        couple of seconds — the view will switch on as soon as the link comes
-        up.
+        The control link dropped. Retrying every couple of seconds — the view
+        will come back as soon as the link is up.
       </p>
     </div>
   )
