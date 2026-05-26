@@ -23,11 +23,4 @@ echo "→ Deploying to Pi..."
 rsync -av --exclude='__pycache__' --exclude='*.pyc' \
   backend/ $PI_USER@$PI_HOST:$PI_PATH/
 
-echo "→ Restarting server..."
-ssh $PI_USER@$PI_HOST \
-  "pkill uvicorn || true; \
-   cd $PI_PATH && \
-   source $PI_PATH/venv/bin/activate && \
-   nohup uvicorn main:app --host 0.0.0.0 --port 8000 &"
-
-echo "✓ Done. App running at http://$PI_HOST:8000"
+echo "✓ Done. SSH to the Pi and run ./run.sh from $PI_PATH to start the server."
