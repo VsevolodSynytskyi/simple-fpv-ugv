@@ -51,6 +51,20 @@ The dev server proxies `/video` and `/ws` to the Pi at `$PI_HOST:8000`
 
 ### Deploy to the Pi
 
+One-time setup — enable passwordless SSH to the Pi so `rsync` and `ssh`
+in `deploy.sh` run without prompts:
+
+```bash
+# Copy your public key to the Pi (asks for the Pi's password once).
+# If you don't have an SSH key yet, run `ssh-keygen` first.
+ssh-copy-id $PI_USER@$PI_HOST
+
+# Verify — should print "ok" with no password prompt
+ssh $PI_USER@$PI_HOST 'echo ok'
+```
+
+Then deploy:
+
 ```bash
 ./deploy.sh
 ```
