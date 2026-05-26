@@ -12,10 +12,8 @@ React frontend on Mac.
 
 ## Dev workflow
 
-Terminal 1 — Pi (via SSH):
-
+in the project folder, on PI (via SSH)
 ```bash
-cd ~/ugv/backend
 make dev
 ```
 
@@ -62,6 +60,18 @@ Do not introduce visual patterns not covered by that document without asking fir
   conditionals.
 - Place component files in `src/` — organize into subdirectories as the
   project grows (`src/components/`, `src/hooks/`).
+
+### Component encapsulation
+
+- Components should be self-contained "lego bricks." Call hooks at the
+  level of the component that needs the data — avoid prop drilling and
+  avoid passing hook return values down the tree.
+- When a shared resource (e.g. the command WebSocket) is needed by
+  multiple components, expose it through a hook backed by a
+  module-level singleton, so each consumer can call the hook directly
+  without re-creating the resource. See `hooks/useWebSocket.ts`.
+- Parent components should compose children, not wire them together
+  with props.
 
 ### Formatting (Prettier)
 
