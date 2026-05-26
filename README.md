@@ -34,15 +34,13 @@ cp .env.example .env
 ### Backend (on the Pi, over SSH)
 
 ```bash
-cd ~/ugv/backend
-source ~/ugv/venv/bin/activate
-uvicorn main:app --host 0.0.0.0 --port 8000
+make dev
 ```
 
 ### Frontend (on the laptop, dev mode)
 
 ```bash
-cd frontend
+cd frontend/
 npm install
 npm run dev
 # open http://localhost:5173

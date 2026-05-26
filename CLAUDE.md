@@ -16,8 +16,7 @@ Terminal 1 — Pi (via SSH):
 
 ```bash
 cd ~/ugv/backend
-source ~/ugv/venv/bin/activate
-uvicorn main:app --host 0.0.0.0 --port 8000
+make dev
 ```
 
 Terminal 2 — Mac:
